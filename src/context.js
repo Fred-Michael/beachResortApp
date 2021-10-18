@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import items from './data'
+import rawData from "./data";
 
 const RoomContext = React.createContext();
 
@@ -21,7 +21,7 @@ class RoomProvider extends Component {
     };
 
     componentDidMount(){
-        let rooms = this.formatData(items)
+        let rooms = this.formatData(rawData)
         let featuredRooms = rooms.filter(room => room.featured === true);
         let maxPrice = Math.max(...rooms.map(item => item.price))
         let maxSize = Math.max(...rooms.map(item => item.size))
@@ -37,8 +37,8 @@ class RoomProvider extends Component {
         });
     }
 
-    formatData(items) {
-        let tempItems = items.map(item => {
+    formatData(rawData) {
+        let tempItems = rawData.map(item => {
             let id = item.sys.id
             let images = item.fields.images.map(img => img.fields.file.url);
             let room = {...item.fields, images, id}
