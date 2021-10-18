@@ -4,7 +4,6 @@ import Jumbotron from '../components/Jumbotron'
 import Banner from '../components/Banner'
 import Services from '../components/Services'
 import FeaturedRooms from '../components/FeaturedRooms'
-import CustomJumbotron from '../components/StyledJumbotron'
 
 function Home() {
     return (
@@ -18,7 +17,6 @@ function Home() {
             </Jumbotron>
             <Services />
             <FeaturedRooms />
-            <CustomJumbotron />
         </>
     )
 }
